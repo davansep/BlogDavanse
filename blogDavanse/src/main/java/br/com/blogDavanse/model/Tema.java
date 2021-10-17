@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @version 1.0
  */
 @Entity
-@Table
 public class Tema {
 
 	@Id
