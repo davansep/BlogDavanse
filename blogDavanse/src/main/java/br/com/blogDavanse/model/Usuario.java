@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @author Priscila Davanse
@@ -17,15 +18,16 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
+	@NotNull(message = "O atributo Nome é Obrigatório!")
 	@Size(min = 2, max = 30)
 	private String nome;
 
-	@NotNull
-	@Email
+	@ApiModelProperty(example = "email@email.com.br")
+	@NotNull(message = "O atributo E-mail é Obrigatório!")
+	@Email(message = "O atributo E-mail deve ser válido!")
 	private String email;
 
-	@NotNull
+	@NotNull(message = "O atributo Senha é Obrigatório!")
 	@Size(min = 5, max = 100)
 	private String senha;
 
