@@ -5,13 +5,22 @@ package br.com.blogDavanse.model;
  * @version 1.0
  */
 public class UserLogin {
-
+	
+	private Long id;
 	private String nome;
 	private String email;
 	private String senha;
 	private String token;
 	private String foto;
 	private String tipo;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
