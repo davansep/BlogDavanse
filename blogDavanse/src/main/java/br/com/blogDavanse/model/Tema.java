@@ -1,5 +1,6 @@
 package br.com.blogDavanse.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,9 +20,9 @@ public class Tema {
 	@NotNull
 	private String descricao;
 
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("tema")
-	private List<Postagem> postagem;
+	@OneToMany(mappedBy = "temaRelacionado", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("temaRelacionado")
+	private List<Postagem> postagens = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -39,11 +40,11 @@ public class Tema {
 		this.descricao = descricao;
 	}
 
-	public List<Postagem> getPostagem() {
-		return postagem;
+	public List<Postagem> getPostagens() {
+		return postagens;
 	}
 
-	public void setPostagem(List<Postagem> postagem) {
-		this.postagem = postagem;
+	public void setPostagens(List<Postagem> postagens) {
+		this.postagens = postagens;
 	}
 }

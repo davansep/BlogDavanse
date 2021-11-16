@@ -29,10 +29,12 @@ public class Postagem {
 	private Date date = new java.sql.Date(System.currentTimeMillis());
 
 	@ManyToOne
-	@JsonIgnoreProperties("postagem")
-	private Tema tema;
+	@JoinColumn(name = "fk_tema")
+	@JsonIgnoreProperties("postagens")
+	private Tema temaRelacionado;
 
 	@ManyToOne
+	@JoinColumn(name = "fk_criador")
 	@JsonIgnoreProperties({ "minhasPostagens" })
 	private Usuario criador;
 
@@ -69,11 +71,11 @@ public class Postagem {
 	}
 
 	public Tema getTema() {
-		return tema;
+		return temaRelacionado;
 	}
 
-	public void setTema(Tema tema) {
-		this.tema = tema;
+	public void setTema(Tema temaRelacionado) {
+		this.temaRelacionado = temaRelacionado;
 	}
 
 	public Usuario getCriador() {
