@@ -33,7 +33,7 @@ public class Usuario {
 
 	@OneToMany(mappedBy = "criador", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({ "criador" })
-	private List<Postagem> minhasPostagens = new ArrayList<>();
+	private List<Postagem> Postagens = new ArrayList<>();
 	
 	private String foto;
 	
@@ -71,12 +71,12 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public List<Postagem> getMinhasPostagens() {
-		return minhasPostagens;
+	public List<Postagem> getPostagens() {
+		return Postagens;
 	}
 
-	public void setMinhasPostagens(List<Postagem> minhasPostagens) {
-		this.minhasPostagens = minhasPostagens;
+	public void setPostagens(List<Postagem> postagens) {
+		Postagens = postagens;
 	}
 
 	public String getFoto() {

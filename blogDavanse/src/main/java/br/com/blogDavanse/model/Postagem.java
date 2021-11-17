@@ -31,11 +31,11 @@ public class Postagem {
 	@ManyToOne
 	@JoinColumn(name = "fk_tema")
 	@JsonIgnoreProperties("postagens")
-	private Tema temaRelacionado;
+	private Tema tema;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_criador")
-	@JsonIgnoreProperties({ "minhasPostagens" })
+	@JsonIgnoreProperties({ "Postagens" })
 	private Usuario criador;
 
 	public Long getId() {
@@ -71,11 +71,11 @@ public class Postagem {
 	}
 
 	public Tema getTema() {
-		return temaRelacionado;
+		return tema;
 	}
 
-	public void setTema(Tema temaRelacionado) {
-		this.temaRelacionado = temaRelacionado;
+	public void setTema(Tema tema) {
+		this.tema = tema;
 	}
 
 	public Usuario getCriador() {
