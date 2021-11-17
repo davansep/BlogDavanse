@@ -29,13 +29,11 @@ public class Postagem {
 	private Date date = new java.sql.Date(System.currentTimeMillis());
 
 	@ManyToOne
-	@JoinColumn(name = "fk_tema")
-	@JsonIgnoreProperties("postagens")
+	@JsonIgnoreProperties("postagem")
 	private Tema tema;
 
 	@ManyToOne
-	@JoinColumn(name = "fk_criador")
-	@JsonIgnoreProperties({ "Postagens" })
+	@JsonIgnoreProperties({ "minhasPostagens" })
 	private Usuario criador;
 
 	public Long getId() {
